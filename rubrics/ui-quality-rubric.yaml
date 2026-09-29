@@ -1,0 +1,90 @@
+name: practical_ui_quality_rubric
+version: 1.0
+score_total: 100
+notes:
+  - This weighting is an operationalization for agent evaluation, not a score published in the source book.
+  - A serious accessibility or task-blocking defect can fail a design regardless of total score.
+
+hard_fail_conditions:
+  - primary task cannot be completed
+  - critical information is undiscoverable
+  - destructive action has unacceptable accidental-trigger risk
+  - severe text/control contrast failure on critical content
+  - form cannot recover from common validation errors
+  - essential meaning depends on color alone
+
+categories:
+  - id: task_efficiency
+    weight: 18
+    checks:
+      - shortest reasonable critical path
+      - unnecessary steps removed or deferred
+      - typing, scrolling, searching, and precision tapping minimized
+      - related actions are near their objects
+  - id: cognitive_load
+    weight: 14
+    checks:
+      - choices are limited and staged when useful
+      - information is grouped logically
+      - secondary detail is progressively disclosed
+      - patterns are familiar and predictable
+  - id: hierarchy_discoverability
+    weight: 12
+    checks:
+      - primary action is obvious
+      - content prominence reflects importance
+      - critical information is visible or clearly discoverable
+      - multiple alignments/styles do not create noise
+  - id: accessibility
+    weight: 16
+    checks:
+      - text and non-text contrast are adequate
+      - meaning is not color-only
+      - targets are large and separated enough
+      - focus/selected/error states are distinguishable
+      - labels and reading order support assistive technology
+  - id: forms_and_error_prevention
+    weight: 12
+    checks:
+      - form is single-flow or logically stepped
+      - fields are necessary
+      - labels persist
+      - controls match the decision type
+      - validation timing and recovery are clear
+  - id: copy_clarity
+    weight: 8
+    checks:
+      - concise plain language
+      - important information is front-loaded
+      - labels/actions describe destination or result
+      - errors explain recovery
+  - id: consistency_design_system
+    weight: 8
+    checks:
+      - tokens/components are reused
+      - similar controls look and behave similarly
+      - semantic colors and action weights are consistent
+  - id: responsive_resilience
+    weight: 6
+    checks:
+      - design survives small screens and long text
+      - layout tolerates localization and content variation
+      - touch and keyboard contexts are handled appropriately
+  - id: visual_polish
+    weight: 6
+    checks:
+      - spacing rhythm is intentional
+      - typography is coherent
+      - color is purposeful
+      - decoration does not compete with tasks
+
+severity_penalties:
+  critical: 25
+  high: 10
+  medium: 4
+  low: 1
+
+recommended_thresholds:
+  prototype: 75
+  production_candidate: 85
+  high_risk_workflow: 90

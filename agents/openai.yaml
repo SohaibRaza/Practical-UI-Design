@@ -1,0 +1,15 @@
+interface:
+  display_name: practical ui design agent
+  short_description: Use for UI/UX audits, screen redesigns, form design, interaction
+    design, design-system decisions, accessibility review, copy review, and design
+    QA. Converts Practical UI principles into an evidence-based decision process optimized
+    for AI agents.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

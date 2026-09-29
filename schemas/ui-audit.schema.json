@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Practical UI Agent Audit",
+  "type": "object",
+  "required": ["context", "critical_path", "findings", "recommendation", "rule_ids_used"],
+  "properties": {
+    "context": {
+      "type": "object",
+      "required": ["user", "task", "platform", "assumptions"],
+      "properties": {
+        "user": {"type": "string"},
+        "task": {"type": "string"},
+        "platform": {"type": "string"},
+        "environment": {"type": "string"},
+        "assumptions": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "critical_path": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "severity", "evidence", "impact", "rule_ids", "recommendation"],
+        "properties": {
+          "id": {"type": "string"},
+          "severity": {"enum": ["critical", "high", "medium", "low"]},
+          "evidence": {"type": "string"},
+          "impact": {"type": "string"},
+          "rule_ids": {"type": "array", "items": {"type": "string"}},
+          "recommendation": {"type": "string"},
+          "tradeoff": {"type": "string"}
+        }
+      }
+    },
+    "recommendation": {
+      "type": "object",
+      "properties": {
+        "information_architecture": {"type": "array", "items": {"type": "string"}},
+        "flow": {"type": "array", "items": {"type": "string"}},
+        "components": {"type": "array", "items": {"type": "string"}},
+        "validation": {"type": "array", "items": {"type": "string"}},
+        "states": {"type": "array", "items": {"type": "string"}},
+        "accessibility": {"type": "array", "items": {"type": "string"}},
+        "design_system": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "before_after": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "metric": {"type": "string"},
+          "before": {"type": ["string", "number"]},
+          "after": {"type": ["string", "number"]},
+          "note": {"type": "string"}
+        }
+      }
+    },
+    "open_questions": {"type": "array", "items": {"type": "string"}},
+    "rule_ids_used": {"type": "array", "items": {"type": "string"}}
+  }
+}
