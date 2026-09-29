@@ -42,3 +42,4 @@ Rules are treated as strong defaults, not immutable laws. Context, platform conv
 
 This pack contains original summaries, operational rules, schemas, and workflows derived from a user-provided copy of the book. It intentionally avoids reproducing the book's full text or visual examples.
 # Practical-UI-Design
+# Practical-UI-Design
